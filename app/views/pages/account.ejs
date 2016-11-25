@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/head.css">
+	<link rel="stylesheet" href="css/account.css">
+	<link rel="stylesheet" href="css/popUp.css">
+</head>
+<body>
+
+	<% if(!user){%>
+		<script>window.location.href = "/"</script>
+	<%} %>
+
+	<% include ../includes/header %>
+	<div class="account clear">
+		<div class="left userDetail">
+			<div class="img">
+				<img src="img/user/<%=user.img%>.jpg" alt="头像">
+			</div>
+			<p class="userName"><%-String(user.username).replace(/(\d{3})\d{4}(\d{4})/,"$1****$2") %></p>
+			<p class="email"><%=user.email %></p>
+		</div>
+		<div class="right myArtical">
+			<div>
+				<div class="clear title">
+					<h3 class="left">我的帖子</h3>
+					<p class="number right"><%-articals.length %></p>
+				</div>
+				<div class="detail">
+					<% articals.forEach(function(obj){ %>
+						<a href="/artical?_id=<%=obj._id %>" class="clear">
+							<p class="left"><%=obj.title %></p>
+							<p class="right"><%=obj.createTime.toLocaleDateString() %></p>
+						</a>
+					<% }) %>
+				</div>
+			</div>
+			<div>
+				<div class="clear title">
+					<h3 class="left">我的点评</h3>
+					<p class="number right"><%-comments.length %></p>
+				</div>
+				<div class="detail">
+					<% comments.forEach(function(obj){ %>
+						<a href="/artical?_id=<%=obj.artical %>" class="clear">
+							<p class="left"><%=obj.title %></p>
+							<p class="right"><%=obj.createTime.toLocaleDateString() %></p>
+						</a>
+					<% }) %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p class="foot">Copyright 2014   京ICP备14045649-2号</p>
+	
+	<script src="third/jquery.min.1.10.2.js"></script>
+	<script src="third/common.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/logout.js"></script>
+</body>
+</html>

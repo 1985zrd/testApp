@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/head.css">
+	<link rel="stylesheet" href="css/itemH.css">
+	<link rel="stylesheet" href="css/backTop.css">
+	<% if(!user){%>
+		<link rel="stylesheet" href="css/sign.css">
+	<%} %>
+	<link rel="stylesheet" href="css/search.css">
+	<link rel="stylesheet" href="css/popUp.css">
+</head>
+<body>
+	<% include ../includes/header %>
+	<div class="bigSearch clear">
+		<input class="left" type="text" placeholder="输入你想查找的内容">
+		<div class="btn left"></div>
+	</div>
+	<div class="clear itemH">
+
+		<% arr.forEach(function(obj){ %>
+			<% include ../includes/itemH %>
+		<% }) %>
+		
+	</div>
+	<p class="loadEndInfo">加载完成</p>
+	<p class="foot">Copyright 2014   京ICP备14045649-2号</p>
+
+	<% include ../includes/backTop %>
+	<% if(!user){%>
+		<% include ../includes/sign %>
+	<%} %>
+
+	<script src="third/jquery.min.1.10.2.js"></script>
+	<script src="third/common.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/bigSearch.js"></script>
+	<script src="js/backtop.js"></script>
+	<% if(!user){%>
+		<script src="js/sign.js"></script>
+	<%} %>
+	<script src="js/logout.js"></script>
+</body>
+</html>

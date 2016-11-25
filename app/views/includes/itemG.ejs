@@ -1,0 +1,14 @@
+<a href="artical?_id=<%=obj._id %>" class="item left">
+	<div class="img">
+		<img src="<%=obj.imgLink %>" alt="照片">
+	</div>
+	<div class="info">
+		<p class="title"><%=obj.title %></p>
+		<p class="star"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></p>
+		<div class="statistics clear">
+			<p class="left"><%= obj.viewNum %>览</p>
+			<p class="left"><%= obj.commentsNum %>评</p>
+			<p class="left"><%= obj.forwardNum %>转</p>
+		</div>
+	</div>
+</a>

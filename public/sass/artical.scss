@@ -1,0 +1,77 @@
+@charset "utf-8";
+.articalMain{width:1200px;margin:20px auto 30px;background-color: #fff;padding:20px;
+  .title{text-align: center;
+    font-size: 32px;
+    line-height: 70px;
+    font-weight: 700;
+    color: #333;}
+  .source{text-align: center;
+    font-size: 14px;
+    line-height: 44px;
+    color: #999;
+    border-bottom: 1px #999 dotted;
+    margin-bottom: 10px;
+    span{display: inline-block;margin-right:30px;vertical-align: middle;
+      a{color:#6985ff;}
+      a:hover{text-decoration: underline;}
+    }
+  }
+  .articalBody p{color:#666;line-height:26px;}
+  .address{padding:10px;
+    p{color:#333;line-height:30px;}
+    .allmap{width:100%;height:300px;border:1px solid #d1d1d1;}
+  }
+  .link{    text-align: center;
+    padding: 40px 0 0;
+    a{color:#666;display: inline-block;padding:0 40px;}
+    a:hover{color:#6985ff;}
+  }
+  .comment{margin-top:40px;padding:0 20px;
+    .starBar{
+      p{line-height:24px;color:#666;padding:3px 0;height:24px;
+        span{display: inline-block;width:24px;height:24px;vertical-align: middle;background: url(../img/star.png) no-repeat 0 center;cursor: pointer;float:left;}
+        .on{background-position: -24px center;}
+      }
+    }
+    .shareBar{padding:10px 0;
+      .speak{padding:0 28px;height:40px;line-height:40px;background-color: #428bca;color:#fff;font-size:16px;border-radius:5px;cursor: pointer;}
+      .share{overflow: hidden;padding:5px 0;}
+      .share span,.share a{vertical-align: top;color:#5a5a5a;float:left;padding-left:0;}
+      .share span{line-height: 30px;margin-right: 18px;font-size: 14px;}
+      .share a{width:69px;height:30px;line-height: 30px;text-align: center;background: url(../img/share.png) no-repeat;}
+      .share .shareQQ{background-position: 0 0;}
+      .share .shareQQRoom{background-position: -69px 0;}
+      .share .shareSina{background-position: -138px 0;}
+      .share .shareQQBo{background-position: -207px 0;}
+    }
+    .entryBar{border: 1px solid #e2e2e2;
+      textarea{width:98%;height:60px;overflow: hidden;overflow-y: scroll;padding:1%;}
+      .sendBar{height:40px;padding:6px 10px;border-top: 1px solid #e2e2e2;
+        p{line-height:40px;color:#666;}
+        .sendComment{padding:0 28px;height:40px;line-height:40px;background-color: #428bca;color:#fff;font-size:16px;border-radius:5px;cursor: pointer;}
+      }
+    }
+    .commentList{padding:10px 0;
+      .item{border: 1px solid #e2e2e2;border-radius:5px;margin-bottom:10px;
+        .border{border-top: 1px solid #e2e2e2;}
+        p{line-height:36px;padding:10px;color:#666;}
+        .info{text-indent:2em;}
+        .userInfo{padding-left:60px;
+          span{display: inline-block;padding-left:30px;}
+        }
+        .userInfo.hearts{background: url(../img/user/hearts.jpg) no-repeat 10px center;background-size:30px;}
+        .userInfo.spades{background: url(../img/user/spades.jpg) no-repeat 10px center;background-size:30px;}
+        .userInfo.diamonds{background: url(../img/user/diamonds.jpg) no-repeat 10px center;background-size:30px;}
+        .userInfo.clubs{background: url(../img/user/clubs.jpg) no-repeat 10px center;background-size:30px;}
+        .zan{padding:10px 0;
+          p{width:36px;height:36px;background: url(../img/zan.png) no-repeat 10px 0;cursor: pointer;padding:0 20px 0 30px;line-height:36px;text-align: center;color:#999;font-size:12px;}
+          p:hover{background-position: 10px -36px;}
+        }
+        .zan.active{
+          p{color:red;background-position: 10px -36px;}
+        }
+      }
+    }
+  }
+}
+

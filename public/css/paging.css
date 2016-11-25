@@ -1,0 +1,53 @@
+.paging {
+  margin: 0 4%;
+  height: 30px;
+  text-align: right;
+  background: #fff;
+  padding: 24px 0; }
+
+.paging a {
+  margin: 0 5px;
+  padding: 0 12px;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #e1e0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #5a5a5a; }
+
+.paging .on {
+  background: #289cff;
+  border: 1px solid #289cff;
+  color: #fff; }
+
+.paging span {
+  margin: 0 5px;
+  padding: 0 12px;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #5a5a5a; }
+
+.paging .prev {
+  height: 28px;
+  border: 1px solid #e1e0e0;
+  color: #5a5a5a;
+  display: inline-block;
+  padding: 0 10px 0 16px;
+  background: url(../img/pagingBg.png) no-repeat 5px 0;
+  line-height: 28px;
+  font-size: 14px;
+  cursor: pointer; }
+
+.paging .next {
+  height: 28px;
+  border: 1px solid #e1e0e0;
+  color: #5a5a5a;
+  display: inline-block;
+  padding: 0 16px 0 10px;
+  background: url(../img/pagingBg.png) no-repeat 60px -30px;
+  line-height: 28px;
+  font-size: 14px;
+  cursor: pointer; }

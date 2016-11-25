@@ -1,0 +1,9 @@
+<div class="item">
+	<p class="info"><%-obj.content %></p>
+	<div class="border clear">
+		<p class="userInfo left <%=obj.img %>"><%-String(obj.from).replace(/(\d{3})\d{4}(\d{4})/,"$1****$2") %><span>于<%=obj.createTime.toLocaleDateString() %>发表</span></p>
+		<div class="right zan" code="<%=obj._id %>">
+			<p><%-obj.nice %></p>
+		</div>
+	</div>
+</div>

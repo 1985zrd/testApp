@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/head.css">
+	<link rel="stylesheet" href="css/writeArtical.css">
+	<% if(!user){%>
+		<link rel="stylesheet" href="css/sign.css">
+	<%} %>
+	<link rel="stylesheet" href="css/popUp.css">
+	
+	<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.js"> </script>
+</head>
+<body>
+	<% include ../includes/header %>
+	<div class="editBar">
+		<p class="head">编写文章</p>
+		<div class="oneRow clear column">
+		    <div class="left"><span>所属栏目：</span></div>
+		    <div class="right position">
+		    	<span class="select selectedList"></span>
+		    	<ul>
+			        <li>美食</li>
+			        <li>美景</li>
+			        <li>游戏</li>
+		   		 </ul>
+		   	</div>
+		</div>
+		<div class="oneRow clear title">
+		    <div class="left" ><span>文章标题：</span></div>
+		    <div class="right"><input type="text" /></div>
+		</div>
+		<div class="oneRow clear describe">
+		    <div class="left"><span>描述：</span></div>
+		    <div class="right">
+		    	<textarea rows="3"></textarea>
+		    	<p class="wordLimit">0/140</p>
+		    </div>
+		</div>
+		<div class="oneRow clear source">
+		    <div class="left"><span>来源：</span></div>
+		    <div class="right"><input type="text" value="" /></div>
+		</div>
+		<div class="oneRow clear sourceLink">
+		    <div class="left"><span>来源链接：</span></div>
+		    <div class="right"><input type="text" value="" /></div>
+		</div>
+		<div class="oneRow clear imgLink">
+		    <div class="left"><span>外链图片：</span></div>
+		    <div class="right loadImgWrap">
+			    	<div class="uploadBtn">点击上传<form action="/upload" method="post" enctype="multipart/form-data" target="iframe"><input id="uploadImg" name="uploadImg" type="file"></form></div>
+		    </div>
+		</div>
+		<div class="oneRow clear address">
+		    <div class="left"><span>具体地址：</span></div>
+		    <div class="right"><input type="text" value="" /></div>
+		</div>
+		<div>
+		    <script id="editor" type="text/plain" style="width:1024px;height:500px;margin:0 auto;"></script>
+		</div>
+		<p class="subBtn"><input type="button" value="发布"/></p>
+	</div>
+	<p class="foot">Copyright 2014   京ICP备14045649-2号</p>
+	<iframe name="iframe" id="iframe" frameborder="0" style="display:none;"></iframe>
+	<% if(!user){%>
+		<% include ../includes/sign %>
+	<%} %>
+
+	<script src="third/jquery-2.0.0.min.js"></script>
+	<script src="third/common.js"></script>
+	<script src="js/search.js"></script>
+	<% if(!user){%>
+		<script src="js/sign.js"></script>
+	<%} %>
+	<script src="js/logout.js"></script>
+	<script>
+		function test(obj){
+			if(obj){
+				var link = obj.split("\\").slice(1).join("/");
+				var img = new Image();
+				img.src = link;
+				img.onload = function(){
+					$(".loadImgWrap img").remove();
+					$(".uploadBtn").before(img)
+				}
+			}
+		}
+	</script>
+
+	<script>
+		var ue = UE.getEditor('editor');
+	</script>
+
+	<script src="js/saveArtical.js"></script>
+</body>
+</html>

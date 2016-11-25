@@ -1,0 +1,40 @@
+@charset "utf-8";
+header{width:100%;background-color: #222222;height:80px;
+  .wrap{width:1200px;margin:0 auto;
+    .logo{width:80px;height:80px;background: url(../img/logo.png) no-repeat;}
+    .nav {margin-left:40px;
+      li{float:left;padding:0 6px;
+        a{height:80px;line-height:80px;display: inline-block;padding:0 18px;color:#fff;font-size:20px;}
+      }
+      .active,.active:hover{
+        a{color:#ef6505;}
+      }
+      li:hover{
+        a{color:#f69959;}
+      }
+    }
+    .writeArtical{padding:20px 0px;margin-left:60px;
+      a{display: inline-block;height:40px;line-height:40px;color:#fff;background-color: #60b044;padding:0 20px;border-radius:5px;}
+    }
+    .search{padding:20px 0px;margin-left:60px;
+      input{padding:0 20px;width:140px;height:40px;line-height:40px;background-color: #eeeeee;color:#666;border-radius:5px 0 0 5px;}
+      .btn{width:40px;height:40px;background:#fff url(../img/searchBtn.png) no-repeat center center;border-radius:0 5px 5px 0;cursor:pointer;background-size:26px;}
+    }
+    .sign{padding:20px 20px 0 0;
+      li{float:left;height:40px;line-height:40px;padding:0 20px;color:#fff;font-size: 16px;cursor:pointer;}
+    }
+    .userInfo{width:56px;height:56px;margin:12px 20px 0 0;border-radius:50%;position:relative;
+      p{position: absolute;width:100px;left:-20px;top:56px;height:40px;line-height:40px;text-align:center;background-color: #fff;border:1px solid #999;border-radius:5px;cursor:pointer;color:#666;z-index:9;display: none;}
+    }
+    .userInfo.hearts{background: url(../img/user/hearts.jpg) no-repeat center center;background-size:60px;}
+    .userInfo.spades{background: url(../img/user/spades.jpg) no-repeat center center;background-size:60px;}
+    .userInfo.diamonds{background: url(../img/user/diamonds.jpg) no-repeat center center;background-size:60px;}
+    .userInfo.clubs{background: url(../img/user/clubs.jpg) no-repeat center center;background-size:60px;}
+    .userInfo:hover{
+      p{display: block;}
+    }
+  }
+}
+.loadEndInfo{width:100%;text-align: center;height:60px;line-height:60px;color:#333;display:none;}
+
+.foot{height:90px;width:100%;line-height:90px;background-color: #fff;text-align: center;font-size: 12px;color:#999;}

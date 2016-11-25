@@ -1,0 +1,27 @@
+<header>
+	<div class="wrap clear">
+		<div class="logo left"></div>
+		<ul class="left nav">
+			<li <% if(title == '首页'){ %> class="active" <% } %> ><a href="/">美食</a></li>
+			<li <% if(title == '美景'){ %> class="active" <% } %> ><a href="scenery">美景</a></li>
+			<li <% if(title == '游戏'){ %> class="active" <% } %> ><a href="game">游戏</a></li>
+		</ul>
+		<div class="writeArtical left"><a href="writeArtical">发帖</a></div>
+		<div class="search left">
+			<input class="left" type="text" placeholder="搜索站内帖子">
+			<div class="btn left"></div>
+		</div>
+
+		<% if(user){%>
+			<a href="account" class="userInfo right <%=user.img %>">
+				<p id="logout">退出登录</p>
+			</a>
+		<%}else{%>
+			<ul class="sign right">
+				<li id="signUp">注册</li>
+				<li id="signIn">登录</li>
+			</ul>
+		<%}%>
+		
+	</div>
+</header>

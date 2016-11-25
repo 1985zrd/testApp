@@ -1,0 +1,174 @@
+.articalMain {
+  width: 1200px;
+  margin: 20px auto 30px;
+  background-color: #fff;
+  padding: 20px; }
+  .articalMain .title {
+    text-align: center;
+    font-size: 32px;
+    line-height: 70px;
+    font-weight: 700;
+    color: #333; }
+  .articalMain .source {
+    text-align: center;
+    font-size: 14px;
+    line-height: 44px;
+    color: #999;
+    border-bottom: 1px #999 dotted;
+    margin-bottom: 10px; }
+    .articalMain .source span {
+      display: inline-block;
+      margin-right: 30px;
+      vertical-align: middle; }
+      .articalMain .source span a {
+        color: #6985ff; }
+      .articalMain .source span a:hover {
+        text-decoration: underline; }
+  .articalMain .articalBody p {
+    color: #666;
+    line-height: 26px; }
+  .articalMain .address {
+    padding: 10px; }
+    .articalMain .address p {
+      color: #333;
+      line-height: 30px; }
+    .articalMain .address .allmap {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #d1d1d1; }
+  .articalMain .link {
+    text-align: center;
+    padding: 40px 0 0; }
+    .articalMain .link a {
+      color: #666;
+      display: inline-block;
+      padding: 0 40px; }
+    .articalMain .link a:hover {
+      color: #6985ff; }
+  .articalMain .comment {
+    margin-top: 40px;
+    padding: 0 20px; }
+    .articalMain .comment .starBar p {
+      line-height: 24px;
+      color: #666;
+      padding: 3px 0;
+      height: 24px; }
+      .articalMain .comment .starBar p span {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        background: url(../img/star.png) no-repeat 0 center;
+        cursor: pointer;
+        float: left; }
+      .articalMain .comment .starBar p .on {
+        background-position: -24px center; }
+    .articalMain .comment .shareBar {
+      padding: 10px 0; }
+      .articalMain .comment .shareBar .speak {
+        padding: 0 28px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #428bca;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer; }
+      .articalMain .comment .shareBar .share {
+        overflow: hidden;
+        padding: 5px 0; }
+      .articalMain .comment .shareBar .share span, .articalMain .comment .shareBar .share a {
+        vertical-align: top;
+        color: #5a5a5a;
+        float: left;
+        padding-left: 0; }
+      .articalMain .comment .shareBar .share span {
+        line-height: 30px;
+        margin-right: 18px;
+        font-size: 14px; }
+      .articalMain .comment .shareBar .share a {
+        width: 69px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background: url(../img/share.png) no-repeat; }
+      .articalMain .comment .shareBar .share .shareQQ {
+        background-position: 0 0; }
+      .articalMain .comment .shareBar .share .shareQQRoom {
+        background-position: -69px 0; }
+      .articalMain .comment .shareBar .share .shareSina {
+        background-position: -138px 0; }
+      .articalMain .comment .shareBar .share .shareQQBo {
+        background-position: -207px 0; }
+    .articalMain .comment .entryBar {
+      border: 1px solid #e2e2e2; }
+      .articalMain .comment .entryBar textarea {
+        width: 98%;
+        height: 60px;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding: 1%; }
+      .articalMain .comment .entryBar .sendBar {
+        height: 40px;
+        padding: 6px 10px;
+        border-top: 1px solid #e2e2e2; }
+        .articalMain .comment .entryBar .sendBar p {
+          line-height: 40px;
+          color: #666; }
+        .articalMain .comment .entryBar .sendBar .sendComment {
+          padding: 0 28px;
+          height: 40px;
+          line-height: 40px;
+          background-color: #428bca;
+          color: #fff;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer; }
+    .articalMain .comment .commentList {
+      padding: 10px 0; }
+      .articalMain .comment .commentList .item {
+        border: 1px solid #e2e2e2;
+        border-radius: 5px;
+        margin-bottom: 10px; }
+        .articalMain .comment .commentList .item .border {
+          border-top: 1px solid #e2e2e2; }
+        .articalMain .comment .commentList .item p {
+          line-height: 36px;
+          padding: 10px;
+          color: #666; }
+        .articalMain .comment .commentList .item .info {
+          text-indent: 2em; }
+        .articalMain .comment .commentList .item .userInfo {
+          padding-left: 60px; }
+          .articalMain .comment .commentList .item .userInfo span {
+            display: inline-block;
+            padding-left: 30px; }
+        .articalMain .comment .commentList .item .userInfo.hearts {
+          background: url(../img/user/hearts.jpg) no-repeat 10px center;
+          background-size: 30px; }
+        .articalMain .comment .commentList .item .userInfo.spades {
+          background: url(../img/user/spades.jpg) no-repeat 10px center;
+          background-size: 30px; }
+        .articalMain .comment .commentList .item .userInfo.diamonds {
+          background: url(../img/user/diamonds.jpg) no-repeat 10px center;
+          background-size: 30px; }
+        .articalMain .comment .commentList .item .userInfo.clubs {
+          background: url(../img/user/clubs.jpg) no-repeat 10px center;
+          background-size: 30px; }
+        .articalMain .comment .commentList .item .zan {
+          padding: 10px 0; }
+          .articalMain .comment .commentList .item .zan p {
+            width: 36px;
+            height: 36px;
+            background: url(../img/zan.png) no-repeat 10px 0;
+            cursor: pointer;
+            padding: 0 20px 0 30px;
+            line-height: 36px;
+            text-align: center;
+            color: #999;
+            font-size: 12px; }
+          .articalMain .comment .commentList .item .zan p:hover {
+            background-position: 10px -36px; }
+        .articalMain .comment .commentList .item .zan.active p {
+          color: red;
+          background-position: 10px -36px; }

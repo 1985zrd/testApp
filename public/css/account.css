@@ -1,0 +1,67 @@
+.account {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 30px;
+  min-height: 720px; }
+  .account .userDetail {
+    width: 180px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px 0; }
+    .account .userDetail .img {
+      padding: 10px;
+      overflow: hidden; }
+      .account .userDetail .img img {
+        width: 160px;
+        height: 160px; }
+    .account .userDetail p {
+      height: 36px;
+      line-height: 36px;
+      padding: 0 10px;
+      color: #666;
+      text-align: center; }
+  .account .myArtical {
+    width: 960px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px; }
+    .account .myArtical .title {
+      background-color: #428bca;
+      padding: 0 20px;
+      border-radius: 5px; }
+    .account .myArtical h3, .account .myArtical .number {
+      height: 36px;
+      line-height: 36px;
+      color: #fff; }
+    .account .myArtical ul {
+      padding: 20px 40px; }
+    .account .myArtical li {
+      height: 36px;
+      cursor: pointer;
+      margin: 4px 0;
+      padding: 0 10px; }
+      .account .myArtical li p {
+        height: 36px;
+        line-height: 36px;
+        color: #666; }
+    .account .myArtical li:hover {
+      background-color: #ddd; }
+      .account .myArtical li:hover p {
+        color: #333; }
+    .account .myArtical .detail {
+      padding: 20px 40px; }
+    .account .myArtical a {
+      height: 36px;
+      cursor: pointer;
+      margin: 4px 0;
+      padding: 0 10px;
+      display: block; }
+      .account .myArtical a p {
+        height: 36px;
+        line-height: 36px;
+        color: #666; }
+    .account .myArtical a:hover {
+      background-color: #ddd; }
+      .account .myArtical a:hover p {
+        color: #333; }

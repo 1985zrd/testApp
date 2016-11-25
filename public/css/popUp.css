@@ -1,0 +1,62 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999; }
+  .popup .mark {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .popup .main {
+    width: 360px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    margin-left: -180px;
+    z-index: 999; }
+    .popup .main .title {
+      width: 100%;
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+      padding: 12px 0 0; }
+    .popup .main .content {
+      padding: 20px 24px;
+      line-height: 36px;
+      font-size: 12px;
+      color: #333; }
+      .popup .main .content p {
+        line-height: 36px;
+        font-size: 12px;
+        color: #333; }
+    .popup .main .bBtn {
+      padding: 6px 20px 20px;
+      height: 50px;
+      overflow: hidden; }
+      .popup .main .bBtn .makesure, .popup .main .bBtn .cancel {
+        width: 120px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer; }
+      .popup .main .bBtn .makesure {
+        float: left;
+        margin-left: 20px;
+        color: #fff;
+        background-color: #289cff;
+        border: 1px solid #289cff; }
+      .popup .main .bBtn .cancel {
+        float: right;
+        margin-right: 20px;
+        color: #289cff;
+        background-color: #fff;
+        border: 1px solid #289cff; }

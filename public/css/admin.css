@@ -1,0 +1,237 @@
+header {
+  width: 100%;
+  background-color: #222222;
+  height: 80px; }
+  header .wrap {
+    width: 1200px;
+    margin: 0 auto; }
+    header .wrap .logo {
+      width: 80px;
+      height: 80px;
+      background: url(../img/logo.png) no-repeat; }
+    header .wrap .signOut {
+      height: 80px;
+      line-height: 80px;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 20px;
+      cursor: pointer; }
+
+.main {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0 20px;
+  /* min-height: 760px;  */}
+  .main .controlBar {
+    width: 180px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px 0; }
+    .main .controlBar h3, .main .controlBar li li {
+      line-height: 40px;
+      cursor: pointer; }
+    .main .controlBar h3 {
+      background: url(../img/adminIcon.png) no-repeat;
+      padding-left: 50px;
+      border-bottom: 1px solid #d1d1d1; }
+    .main .controlBar h3.active {
+      background-color: #FFEEE1; }
+    .main .controlBar .articalH3 {
+      background-position: 20px 0; }
+    .main .controlBar .imgH3 {
+      background-position: 20px -40px; }
+    .main .controlBar .userH3 {
+      background-position: 20px -80px; }
+    .main .controlBar li li {
+      padding: 0 10px; }
+    .main .controlBar li span {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 50px; }
+    .main .controlBar li ul .active {
+      background-color: #75bcec; }
+    .main .controlBar li ul .active:hover {
+      background-color: #75bcec; }
+    .main .controlBar li li:hover {
+      background-color: #9eceee; }
+  .main .contentBar {
+    width: 960px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px; }
+    .main .contentBar .imgLoad {
+      position: relative; }
+      .main .contentBar .imgLoad ul {
+        width: 100%;
+        border: 1px solid #e4e4e4; }
+        .main .contentBar .imgLoad ul li {
+          width: 33.33%;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          cursor: pointer;
+          border-right: 1px solid #e4e4e4;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -o-box-sizing: border-box;
+          -ms-box-sizing: border-box;
+          box-sizing: border-box; }
+        .main .contentBar .imgLoad ul li:nth-of-type(3) {
+          border: 0; }
+        .main .contentBar .imgLoad ul .active {
+          background-color: #46BDEA;
+          color: #fff; }
+    .main .contentBar .loadBar {
+      height: 80px; }
+      .main .contentBar .loadBar .uploadBtn {
+        width: 80%;
+        height: 80px;
+        line-height: 80px;
+        background-color: #f0f0f0;
+        text-align: center;
+        position: relative; }
+        .main .contentBar .loadBar .uploadBtn input {
+          width: 100%;
+          height: 80px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+          cursor: pointer; }
+      .main .contentBar .loadBar .right {
+        width: 20%;
+        background-color: #E2891A;
+        height: 80px;
+        line-height: 80px;
+        cursor: pointer;
+        text-align: center;
+        color: #fff; }
+    .main .contentBar .bannarBar {
+      width: 960px;
+      height: 160px;
+      position: absolute;
+      left: 0;
+      top: 200px;
+      padding: 10px 0;
+      display: none; }
+      .main .contentBar .bannarBar .bannar {
+        width: 960px;
+        height: 160px;
+        overflow: hidden;
+        position: relative; }
+        .main .contentBar .bannarBar .bannar li {
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 0; }
+          .main .contentBar .bannarBar .bannar li a {
+            display: block;
+            width: 100%;
+            height: 100%; }
+            .main .contentBar .bannarBar .bannar li a img {
+              width: 960px;
+              height: 160px; }
+        .main .contentBar .bannarBar .bannar .active {
+          z-index: 1; }
+      .main .contentBar .bannarBar .point {
+        width: 930px;
+        height: 8px;
+        position: absolute;
+        left: 0;
+        bottom: 30px;
+        text-align: right;
+        z-index: 9;
+        line-height: 8px;
+        padding-right: 30px; }
+        .main .contentBar .bannarBar .point a {
+          display: inline-block;
+          width: 20px;
+          height: 8px;
+          border-radius: 5px;
+          background-color: #fff; }
+        .main .contentBar .bannarBar .point .active {
+          background-color: #ff9a23; }
+      .main .contentBar .bannarBar .close {
+        width: 32px;
+        height: 32px;
+        background: url(../img/closeBg.png) no-repeat center center;
+        position: absolute;
+        right: 0;
+        top: -22px;
+        cursor: pointer; }
+
+.queryBar {
+  height: 36px;
+  line-height: 36px;
+  padding: 6px 0;
+  text-align: right;
+  color: #666; }
+  .queryBar input {
+    width: 200px;
+    padding: 0 20px;
+    border: 1px solid #e4e4e4;
+    height: 36px;
+    line-height: 36px;
+    color: #666; }
+  .queryBar .queryBtn {
+    margin: 0 20px 0 10px;
+    background-color: #38afff;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 12px;
+    display: inline-block;
+    vertical-align: middle; }
+
+.foot {
+  height: 90px;
+  width: 100%;
+  line-height: 90px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 12px;
+  color: #999; }
+
+table {
+  width: 100%;
+  border: 1px solid #e4e4e4;
+  border-collapse: collapse;
+  margin: 10px auto 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+  table caption {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bold; }
+  table th, table td {
+    border: 1px solid #e4e4e4;
+    line-height: 60px;
+    text-align: center; }
+  table th {
+    background-color: #e7f4ff;
+    color: #333; }
+  table td {
+    color: #666666; }
+  table td a {
+    color: #6985ff;
+    display: inline-block;
+    margin: 0 10px;
+    height: 60px;
+    line-height: 60px; }
+  table td img {
+    height: 58px;
+    margin: 0 auto; }
+  table td a:hover {
+    text-decoration: underline; }
+
+.contentBar .articalListJ, .contentBar .articalListYX, .contentBar .imgLoad, .contentBar .userList {
+  display: none; }
+
+.contentBar .imgLoad .imgJ, .contentBar .imgLoad .imgYX {
+  display: none; }

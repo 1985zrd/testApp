@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/admin.css">
+	<link rel="stylesheet" href="css/paging.css">
+	<link rel="stylesheet" href="css/popUp.css">
+</head>
+<body>
+	<% if(!user){%>
+		<script>window.location.href = "/"</script>
+	<%} %>
+	<header>
+		<div class="wrap clear">
+			<div class="logo left"></div>
+			<p class="right signOut">退出登录</p>
+		</div>
+	</header>
+	<div class="main clear">
+		<div class="left controlBar">
+			<ul>
+				<li>
+					<h3 class="articalH3 active">文章管理</h3>
+					<ul class="articalEdit">
+						<li class="active"><span>美食栏目</span></li>
+						<li><span>美景栏目</span></li>
+						<li><span>游戏栏目</span></li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="imgH3">图片管理</h3>
+				</li>
+				<li>
+					<h3 class="userH3">用户管理</h3>
+				</li>
+			</ul>
+		</div>
+		<div class="right contentBar">
+			<div class="articalListS articalEdit">
+				<table>
+					<caption>美食栏目</caption>
+			        <thead>
+			            <tr>
+			                <th>序号</th>
+			                <th>用户名</th>
+			                <th>标题</th>
+			                <th>发布时间</th>
+			                <th>操作</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        	<% articals.food.forEach(function(obj, index){ %>
+							<tr code="<%=obj._id %>">
+				                <td><%=index+1 %></td>
+				                <td><%=obj.author %></td>
+				                <td><%=obj.title %></td>
+				                <td><%=obj.createTime.toLocaleDateString() %></td>
+				                <td><a href="javascript:">编辑</a><a href="#"><%if(obj.disable == 1){%>禁用<%}else{%>启用<%}%></a></td>
+				            </tr>
+						<% }) %>
+			        </tbody>
+			    </table>
+				<div id="pagingS" class="paging"></div>
+			</div>
+			<div class="articalListJ articalEdit">
+				<table>
+					<caption>美景栏目</caption>
+			        <thead>
+			            <tr>
+			                <th>序号</th>
+			                <th>用户名</th>
+			                <th>标题</th>
+			                <th>发布时间</th>
+			                <th>操作</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        	<% articals.scenery.forEach(function(obj, index){ %>
+							<tr code="<%=obj._id %>">
+				                <td><%=index+1 %></td>
+				                <td><%=obj.author %></td>
+				                <td><%=obj.title %></td>
+				                <td><%=obj.createTime.toLocaleDateString() %></td>
+				                <td><a href="javascript:">编辑</a><a href="#"><%if(obj.disable == 1){%>禁用<%}else{%>启用<%}%></a></td>
+				            </tr>
+						<% }) %>
+			        </tbody>
+			    </table>
+				<div id="pagingJ" class="paging"></div>
+			</div>
+			<div class="articalListYX articalEdit">
+				<table>
+					<caption>游戏栏目</caption>
+			        <thead>
+			            <tr>
+			                <th>序号</th>
+			                <th>用户名</th>
+			                <th>标题</th>
+			                <th>发布时间</th>
+			                <th>操作</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        	<% articals.game.forEach(function(obj, index){ %>
+							<tr code="<%=obj._id %>">
+				                <td><%=index+1 %></td>
+				                <td><%=obj.author %></td>
+				                <td><%=obj.title %></td>
+				                <td><%=obj.createTime.toLocaleDateString() %></td>
+				                <td><a href="javascript:">编辑</a><a href="#"><%if(obj.disable == 1){%>禁用<%}else{%>启用<%}%></a></td>
+				            </tr>
+						<% }) %>
+			        </tbody>
+			    </table>
+				<div id="pagingYX" class="paging"></div>
+			</div>
+			<div class="imgLoad">
+				<ul class="imgLoadControl clear">
+					<li class="active left">美食</li>
+					<li class="left">美景</li>
+					<li class="left">游戏</li>
+				</ul>
+				<div class="loadBar clear">
+					<div class="uploadBtn left">添加图片<form action="/uploadAd" method="post" enctype="multipart/form-data" target="iframe"><input id="uploadImg" name="uploadImg" type="file"></form></div>
+					<div class="preview right">预览</div>
+				</div>
+				<div class="imgS imgLoadOne">
+					<table>
+						<caption>美食栏目bannar图</caption>
+				        <thead>
+				            <tr>
+				                <th>图片</th>
+				                <th>图片地址</th>
+				                <th>链接地址</th>
+				                <th>操作</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				        	<% articals.imgS.forEach(function(obj, index){ %>
+								<tr code="<%=obj._id %>">
+					                <td><img src="<%=obj.url %>" alt=''></td>
+					                <td><%=obj.url %></td>
+					                <td><input type='text' value='<%=obj.linkUrl %>' /></td>
+					                <td><a href='javascript:'>向上</a><a href='javascript:'>向下</a><a href='javascript:'>删除</a></td>
+					            </tr>
+							<% }) %>
+				        </tbody>
+				    </table>
+				</div>
+				<div class="imgJ imgLoadOne">
+					<table>
+						<caption>美景栏目bannar图</caption>
+				        <thead>
+				            <tr>
+				                <th>序号</th>
+				                <th>图片</th>
+				                <th>标题</th>
+				                <th>图片地址</th>
+				                <th>链接地址</th>
+				                <th>操作</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				        	<% articals.imgJ.forEach(function(obj, index){ %>
+								<tr code="<%=obj._id %>">
+					                <td><img src="<%=obj.url %>" alt=''></td>
+					                <td><%=obj.url %></td>
+					                <td><input type='text' value='<%=obj.linkUrl %>' /></td>
+					                <td><a href='javascript:'>向上</a><a href='javascript:'>向下</a><a href='javascript:'>删除</a></td>
+					            </tr>
+							<% }) %>
+				        </tbody>
+				    </table>
+				</div>
+				<div class="imgYX imgLoadOne">
+					<table>
+						<caption>游戏栏目bannar图</caption>
+				        <thead>
+				            <tr>
+				                <th>序号</th>
+				                <th>图片</th>
+				                <th>标题</th>
+				                <th>图片地址</th>
+				                <th>链接地址</th>
+				                <th>操作</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				        	<% articals.imgYX.forEach(function(obj, index){ %>
+								<tr code="<%=obj._id %>">
+					                <td><img src="<%=obj.url %>" alt=''></td>
+					                <td><%=obj.url %></td>
+					                <td><input type='text' value='<%=obj.linkUrl %>' /></td>
+					                <td><a href='javascript:'>向上</a><a href='javascript:'>向下</a><a href='javascript:'>删除</a></td>
+					            </tr>
+							<% }) %>
+				        </tbody>
+				    </table>
+				</div>
+			    <div class="bannarBar">
+					<ul class="bannar">
+						<li><a href="#1"><img src="img/ad/ad_1.jpg" alt="bannar_ad"></a></li>
+						<li class="active"><a href="#2"><img src="img/ad/ad_2.jpg" alt="bannar_ad"></a></li>
+						<li><a href="#3"><img src="img/ad/ad_3.jpg" alt="bannar_ad"></a></li>
+						<li><a href="#4"><img src="img/ad/ad_4.jpg" alt="bannar_ad"></a></li>
+						<li><a href="#5"><img src="img/ad/ad_5.jpg" alt="bannar_ad"></a></li>
+					</ul>
+					<div class="point">
+						<a href="javascript:"></a>
+						<a class="active" href="javascript:"></a>
+						<a href="javascript:"></a>
+						<a href="javascript:"></a>
+						<a href="javascript:"></a>
+					</div>
+					<div class="close"></div>
+				</div>
+			</div>
+			<div class="userList">
+				<div class="queryBar">
+					<span>日期范围</span>
+					<input id="dataStar" class="dateInp" type="text" value="" placeholder="开始时间"/>
+					 - <input id="dataEnd" class="dateInp" type="text" value="" placeholder="结束时间"/>
+					 <input id="userName" type="text" placeholder="用户名" />
+					 <span id="queryBtn" class="queryBtn">查询</span>
+				</div>
+				<table>
+					<caption>员工管理</caption>
+			        <thead>
+			            <tr>
+			                <th>序号</th>
+			                <th>用户ID</th>
+			                <th>用户名</th>
+			                <th>邮箱</th>
+			                <th>注册时间</th>
+			                <th>最后登录时间</th>
+			                <th>操作</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			            <% articals.users.forEach(function(obj, index){ %>
+							<tr code="<%=obj._id %>">
+				                <td><%=index+1 %></td>
+				                <td><%=obj._id %></td>
+				                <td><%=obj.username %></td>
+				                <td><%=obj.email %></td>
+				                <td><%=obj.createTime.toLocaleDateString() %></td>
+				                <td><%=obj.updateTime.toLocaleDateString() %></td>
+				                <td><a href="javasctipt:"><%if(obj.role != 0){%>禁用<%}else{%>启用<%}%></a></td>
+				            </tr>
+						<% }) %>
+			        </tbody>
+			    </table>
+				<div id="userPaging" class="paging"></div>
+			</div>
+		</div>
+	</div>
+	<iframe name="iframe" id="iframe" frameborder="0" style="display:none;"></iframe>
+	<script src="third/jquery.min.1.10.2.js"></script>
+	<script src="third/common.js"></script>
+	<script src="third/laydate.js"></script>
+	<script src="js/adminIndex.js"></script>
+	<script src="js/logout.js"></script>
+	<script>
+		function test(obj){
+			if(obj){
+				var oTr = $("<tr code=></tr>");
+				oTr.html("<td><img src="+obj+" alt=''></td>\
+	                <td>"+obj+"</td>\
+	                <td><input type='text' value='' /></td>\
+	                <td><a href='javascript:'>向上</a><a href='javascript:'>向下</a><a href='javascript:'>删除</a></td>");
+				if( $(".imgLoadControl li").eq(0).hasClass("active") ){
+					oTr.appendTo( $(".imgS tbody") );
+				}
+				if( $(".imgLoadControl li").eq(1).hasClass("active") ){
+					oTr.appendTo( $(".imgJ tbody") );
+				}
+				if( $(".imgLoadControl li").eq(2).hasClass("active") ){
+					oTr.appendTo( $(".imgYX tbody") );
+				}
+			}
+		}
+	</script>
+</body>
+</html>

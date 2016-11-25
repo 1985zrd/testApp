@@ -1,0 +1,28 @@
+@charset "utf-8";
+.account{width:1200px;margin:0 auto;padding:20px 0 30px;min-height:720px;
+  .userDetail{width:180px;border:1px solid #ddd;background-color: #fff;padding:20px 0;
+    .img{padding:10px;overflow: hidden;
+      img{width:160px;height:160px;}
+    }
+    p{height:36px;line-height:36px;padding:0 10px;color:#666;text-align: center;}
+  }
+  .myArtical{width:960px;background-color: #fff;border:1px solid #ddd;padding:20px;border-radius:5px;
+    .title{background-color: #428bca;padding:0 20px;border-radius:5px;}
+    h3,.number{height:36px;line-height:36px;color:#fff;}
+    ul{padding:20px 40px;}
+    li{height:36px;cursor: pointer;margin:4px 0;padding:0 10px;
+      p{height:36px;line-height:36px;color:#666;}
+    }
+    li:hover{background-color: #ddd;
+        p{color:#333;}
+    }
+    .detail{padding:20px 40px;}
+    a{height:36px;cursor: pointer;margin:4px 0;padding:0 10px;display: block;
+      p{height:36px;line-height:36px;color:#666;}
+    }
+    a:hover{background-color: #ddd;
+        p{color:#333;}
+    }
+  }
+}
+

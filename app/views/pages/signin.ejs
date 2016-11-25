@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/signPage.css">
+	<link rel="stylesheet" href="css/popUp.css">
+</head>
+<body>
+	<div id="loginFrame">
+		<h3>用户登录</h3>
+		<div class="content">
+
+			<p class="userBar"><span>用户名</span><input type="text" value="" name="username" placeholder="手机号"/></p>
+
+			<p class="passwordBar"><span>密码</span><input class="password" type="password" name="password" value="" placeholder="密码（6-16位数字与字母组合）"/></p>
+
+			<div class="clear rememberBar">
+				<p class="rememberUser left">记住账户</p>
+				<a class="right recoverPasswordLink" href="javascript:">忘记密码？</a>
+			</div>
+
+			<p class="loginBar"><input type="button" value="登录"/></p>
+
+			<p class="info">还未注册？<a href="/register">注册</a></p>
+		</div>
+	</div>
+	<script src="third/jquery.min.1.10.2.js"></script>
+	<script src="third/common.js"></script>
+	<script src="js/login.js"></script>
+</body>
+</html>

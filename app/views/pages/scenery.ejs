@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/head.css">
+	<link rel="stylesheet" href="css/bannar.css">
+	<link rel="stylesheet" href="css/itemS.css">
+	<link rel="stylesheet" href="css/backTop.css">
+	<% if(!user){%>
+		<link rel="stylesheet" href="css/sign.css">
+	<%} %>
+	<link rel="stylesheet" href="css/popUp.css">
+</head>
+<body>
+	<% include ../includes/header %>
+	<% include ../includes/bannar %>
+	<div class="clear itemS">
+		<% arr.forEach(function(obj){ %>
+			<% include ../includes/itemS %>
+		<% }) %>
+	</div>
+	<p class="loadEndInfo">加载完成</p>
+	<p class="foot">Copyright 2014   京ICP备14045649-2号</p>
+
+	<% include ../includes/backTop %>
+	<% if(!user){%>
+		<% include ../includes/sign %>
+	<%} %>
+	
+	<script src="third/jquery.min.1.10.2.js"></script>
+	<script src="third/common.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/bannar.js"></script>
+	<script src="js/backtop.js"></script>
+	<script src="js/logout.js"></script>
+	<% if(!user){%>
+		<script src="js/sign.js"></script>
+	<%} %>
+</body>
+</html>

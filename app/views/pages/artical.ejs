@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<% include ../includes/meta %>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/head.css">
+	<link rel="stylesheet" href="css/backTop.css">
+	<% if(!user){%>
+		<link rel="stylesheet" href="css/sign.css">
+	<%} %>
+	<link rel="stylesheet" href="css/artical.css">
+	<link rel="stylesheet" href="css/paging.css">
+	<link rel="stylesheet" href="css/popUp.css">
+	<% if(obj.address){%>
+		<link rel="stylesheet" href="css/baiduMap.css">
+	<%} %>
+</head>
+<body>
+	<% include ../includes/header %>
+	<div class="articalMain">
+		<div class="content">
+			<p class="title"><%=obj.title %></p>
+			<p class="source"><span>来源：<a href="<%=obj.sourceLink %>"><%=obj.source %></a></span><span>作者：<%=obj.author %></span><span>时间：<%=obj.createTime.toLocaleDateString() %></span></p>
+			<div class="articalBody"><%-obj.articalContent %></div>
+			<div class="address">
+			<% if(obj.address){%>
+				<p>地址：<input type="hidden" name="address" value="<%=obj.address %>"></p>
+				<div id="allmap" class="allmap"></div>
+			<%} %>
+				
+			</div>
+			<!-- <p class="link">
+				<a href="#">上一篇：中阳财富黄冈分公司开业盛况</a>
+				<a href="#">下一篇：左右逢园进驻安徽太和为医药行业发展提供金融支持</a>
+			</p> -->
+		</div>
+		<div class="comment">
+			<div class="starBar clear">
+				<p class="left">评论：</p>
+				<p class="star left">
+					<span></span><span></span><span></span><span></span><span></span>
+				</p>
+				<input name="star" type="hidden" value="<%=starNum %>">
+			</div>
+			<div class="shareBar clear">
+				<div class="speak left">
+					<% if(user){%>
+						欢迎留言
+					<%}else{%>
+						登录留言
+					<%} %>
+				</div>
+				<p class="share bdsharebuttonbox bdshare-button-style0-16 right" data-bd-bind="1478140688036">
+					<span class="" data-cmd="more">分享到</span>
+					<a class="shareQQ bds_sqq" data-cmd="sqq" href="javascript:" title="分享到QQ好友"></a>
+					<a class="shareQQRoom bds_qzone" data-cmd="qzone" href="javascript:" title="分享到QQ空间"></a>
+					<a class="shareSina bds_tsina" data-cmd="tsina" href="javascript:" title="分享到新浪微博"></a>
+					<a class="shareQQBo bds_tqq" data-cmd="tqq" href="javascript:" title="分享到腾讯微博"></a>
+				</p>
+			</div>
+			<% if(user){%>
+				<div class="entryBar">
+					<textarea name="" id="" cols="30" rows="10" placeholder="输入你想说的话..."></textarea>
+					<div class="clear sendBar">
+						<p class="left sendNum">0/140</p>
+						<div class="sendComment right">发送</div>
+					</div>
+				</div>
+			<%} %>
+			<div class="commentList">
+
+				<% arr.forEach(function(obj){ %>
+					<% include ../includes/comment %>
+				<% }) %>
+
+			</div>
+			<div id="paging" class="paging"></div>
+		</div>
+	</div>
+	<input name="articalId" type="hidden" value="<%=obj._id %>">
+	<p class="foot">Copyright 2014   京ICP备14045649-2号</p>
+
+	<% include ../includes/backTop %>
+	<% if(!user){%>
+		<% include ../includes/sign %>
+	<%} %>
+	<script src="third/jquery.min.1.10.2.js"></script>
+	
+	<script src="third/common.js"></script>
+	<script src="js/search.js"></script>
+	<script src="js/backtop.js"></script>
+	<% if(!user){%>
+		<script src="js/sign.js"></script>
+	<%} %>
+	<% if(obj.address){%>
+		<script src="third/baiduMap.js"></script>
+		<script src="js/map.js"></script>
+	<%} %>
+	
+	<script src="js/share.js"></script>
+	<script src="js/logout.js"></script>
+	<% if(user){%>
+		<script src="js/comment.js"></script>
+	<%} %>
+	<script src="js/articalDetail.js"></script>
+</body>
+</html>

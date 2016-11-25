@@ -1,0 +1,68 @@
+@charset "utf-8";
+/*清除默认*/
+body,ul,ol,p,h1,h2,h3,h4,h5,h6,li,input,table,tr,th,td,form{
+	margin:0;
+	padding:0;
+}
+body{
+	min-width: 1200px;
+}
+em{
+	font-style:normal;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight:normal;
+}
+li {
+	list-style:none;
+}
+input,select {
+	border: 0;
+	outline: none;
+}
+textarea {
+	border: 0;
+	resize: none;
+	outline: none;
+}
+img {
+	border:0;
+	vertical-align:top;
+}
+a {
+	text-decoration:none;
+	color:#000;
+	cursor:pointer;
+}
+strong {
+	font-weight: normal;
+}
+p{
+	word-wrap: break-word;
+}
+.clear {
+	zoom:1;
+}
+.clear:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.left {
+	display: inline;
+	float: left;
+}
+.right {
+	display: inline;
+	float: right;
+}
+body {
+	font: 14px 'Microsoft Yahei','Arial';background-color: #f0f0f0;
+}
+a:hover {
+	color: #eb6100;
+}
+
+article,aside,footer,header,nav,section{
+    display: block;
+}
