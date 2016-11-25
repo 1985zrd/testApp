@@ -4,10 +4,14 @@ var Comment = require('../models/comment.js');
 exports.scenery = function(req, res){   //美景
 	Artical.fetch({"column":"美景","disable": 1},function(err, arr){
 		if(err){
-			res.send(err);
-		}else{
-			res.render('scenery',{'title':'美景','arr': arr?arr:[]});
+			//res.send(err);
 		}
+		Ad.fetch({"column":"美景"},function(err, ad){
+			if(err){
+				//res.send(err);
+			}
+			res.render('scenery',{'title':'美景','arr': arr?arr:[],"ad":ad?ad:[]});
+		});
 	});
 }
 
@@ -15,9 +19,13 @@ exports.game = function(req, res){   //游戏
 	Artical.fetch({"column":"游戏","disable": 1},function(err, arr){
 		if(err){
 			res.send(err);
-		}else{
-			res.render('game',{'title':'游戏','arr': arr?arr:[]});
 		}
+		Ad.fetch({"column":"游戏"},function(err, ad){
+			if(err){
+				//res.send(err);
+			}
+			res.render('game',{'title':'游戏','arr': arr?arr:[],"ad":ad?ad:[]});
+		});
 	});
 }
 

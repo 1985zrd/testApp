@@ -7,10 +7,10 @@ var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 var app = express();
 
-var dbUrl = 'mongodb://localhost/test';
+var dbUrl = 'mongodb://10.26.76.126/test';
 mongoose.connect(dbUrl);
 
 var ueditor = require('ueditor-nodejs');
