@@ -4,43 +4,27 @@ var Ad = require("../models/ad.js");
 var fs = require("fs");
 
 exports.admin = function(req, res){      //登录页面
-	var json = {"food":[],"scenery":[],"game":[],"users":[],"imgS":[],"imgJ":[],"imgYX":[]};
-	Artical.fetch({},function(err, articals){
+	var json = {"users":[],"imgS":[],"imgJ":[],"imgYX":[]};
+	User.fetch({},function(err, users){
 		if(err){
 			console.log(err)
 		}
-		articals.forEach(function(item, index){
-			if(item.column == "美食"){
-				json.food.push(item);
-			}
-			if(item.column == "美景"){
-				json.scenery.push(item);
-			}
-			if(item.column == "游戏"){
-				json.game.push(item);
-			}
-		});
-		User.fetch({},function(err, users){
-			if(err){
-				console.log(err)
-			}
-			users.forEach(function(item, index){
-				json.users.push(item);
-			})
-			Ad.fetch({},function(err, ads){
-				ads.forEach(function(item, index){
-					if(item.column == "美食"){
-						json.imgS.push(item);
-					}
-					if(item.column == "美景"){
-						json.imgJ.push(item);
-					}
-					if(item.column == "游戏"){
-						json.imgYX.push(item);
-					}
-				});
-				res.render('admin',{'title':'后台登录','articals': json});
+		users.forEach(function(item, index){
+			json.users.push(item);
+		})
+		Ad.fetch({},function(err, ads){
+			ads.forEach(function(item, index){
+				if(item.column == "美食"){
+					json.imgS.push(item);
+				}
+				if(item.column == "美景"){
+					json.imgJ.push(item);
+				}
+				if(item.column == "游戏"){
+					json.imgYX.push(item);
+				}
 			});
+			res.render('admin',{'title':'后台登录','articals': json});
 		});
 	});
 }
@@ -109,7 +93,7 @@ exports.adSave = function(req, res){      //登录页面
 	var column = req.body.column;
 	var url = req.body.url;
 	var linkUrl = req.body.linkUrl;
-	if(!id || id == "" || id == null){
+	if( !id ){
 		var _ad = new Ad({
 			"column": column,
 			"url": url,
@@ -129,4 +113,22 @@ exports.adSave = function(req, res){      //登录页面
 			res.send({"code": 1, "message": "更新成功"});
 		});
 	}
+}
+
+exports.deleteImg = function(req, res){      //图片删除
+	var id = req.body.id;
+	Ad.findById(id, function(err, ad){
+		if(err){
+			console.log(err)
+		}else{
+			fs.unlink("public/"+ad.url);
+			Ad.remove({"_id":id}, function(err, count){
+				if(err){
+					res.send({"code": 1, "message": "删除出错了"});
+				}else{
+					res.send({"code": 0, "message": "删除成功"});
+				}
+			});
+		}
+	})
 }

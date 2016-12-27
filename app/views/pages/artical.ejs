@@ -20,7 +20,7 @@
 	<div class="articalMain">
 		<div class="content">
 			<p class="title"><%=obj.title %></p>
-			<p class="source"><span>来源：<a href="<%=obj.sourceLink %>"><%=obj.source %></a></span><span>作者：<%=obj.author %></span><span>时间：<%=obj.createTime.toLocaleDateString() %></span></p>
+			<p class="source"><span>来源：<a href="<%=obj.sourceLink %>"><%=obj.source %></a></span><span>作者：<%-String(obj.author).replace(/(\d{3})\d{4}(\d{4})/,"$1****$2") %></span><span>时间：<%=obj.createTime.toLocaleDateString() %></span></p>
 			<div class="articalBody"><%-obj.articalContent %></div>
 			<div class="address">
 			<% if(obj.address){%>
@@ -67,18 +67,12 @@
 					</div>
 				</div>
 			<%} %>
-			<div class="commentList">
-
-				<% arr.forEach(function(obj){ %>
-					<% include ../includes/comment %>
-				<% }) %>
-
-			</div>
+			<div class="commentList"></div>
 			<div id="paging" class="paging"></div>
 		</div>
 	</div>
 	<input name="articalId" type="hidden" value="<%=obj._id %>">
-	<p class="foot">Copyright 2014   京ICP备14045649-2号</p>
+	<p class="foot">Copyright (c) 2016  京ICP备16065949号-1</p>
 
 	<% include ../includes/backTop %>
 	<% if(!user){%>
@@ -103,5 +97,6 @@
 		<script src="js/comment.js"></script>
 	<%} %>
 	<script src="js/articalDetail.js"></script>
+
 </body>
 </html>

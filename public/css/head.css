@@ -106,7 +106,8 @@ header {
   height: 60px;
   line-height: 60px;
   color: #333;
-  display: none; }
+  display: none;
+}
 
 .foot {
   height: 90px;

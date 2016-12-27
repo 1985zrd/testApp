@@ -1,21 +1,23 @@
-<div class="bannarBar">
-	<ul class="bannar">
-		<% ad.forEach(function(obj, index){ %>
-			<% if(index == 0){%>
-				<li class="active"><a href="<%=obj.linkUrl %>"><img src="<%=obj.url %>" alt="bannar_ad"></a></li>
-			<%}else{%>
-				<li><a href="<%=obj.linkUrl %>"><img src="<%=obj.url %>" alt="bannar_ad"></a></li>
-			<%}%>
-		<% }) %>
-	</ul>
-	<div class="point">
-		<% ad.forEach(function(obj, index){ %>
-			<% if(index == 0){%>
-				<a class="active" href="javascript:"></a>
-			<%}else{%>
-				<a href="javascript:"></a>
-			<%}%>
-			
-		<% }) %>
+<% if(ad.length>0){%>
+	<div class="bannarBar">
+		<ul class="bannar">
+			<% ad.forEach(function(obj, index){ %>
+				<% if(index == 0){%>
+					<li class="active"><a href="<%=obj.linkUrl %>"><img src="<%=obj.url %>" alt="bannar_ad"></a></li>
+				<%}else{%>
+					<li><a href="<%=obj.linkUrl %>"><img src="<%=obj.url %>" alt="bannar_ad"></a></li>
+				<%}%>
+			<% }) %>
+		</ul>
+		<div class="point">
+			<% ad.forEach(function(obj, index){ %>
+				<% if(index == 0){%>
+					<a class="active" href="javascript:"></a>
+				<%}else{%>
+					<a href="javascript:"></a>
+				<%}%>
+				
+			<% }) %>
+		</div>
 	</div>
-</div>
+<%}%>

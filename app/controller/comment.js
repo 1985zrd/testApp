@@ -43,3 +43,19 @@ exports.share = function(req, res){      //登录
 		res.send({"code": 1, "message": "成功"});
 	});
 }
+
+exports.get = function(req, res){      //获取评论
+	var id = req.body._id, pageNow = req.body.pageNow, pageNum = req.body.pageNum;
+	Comment.fetch({artical: id}, {"now": pageNow, "num": pageNum}, function(err, comments){
+		if(err){
+			res.send(err);
+		}else{
+			Comment.count({artical: id}, function(err, count){
+				if(err){
+					//res.send(err);
+				}
+				res.send({"comments": comments, "pageNow": pageNow, "totalPage": Math.ceil(parseInt(count)/parseInt(pageNum))});
+			});
+		}
+	});
+}

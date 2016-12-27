@@ -73,10 +73,15 @@ module.exports = function(app){
 	app.get('/writeArtical', User.isSignin, Artical.writeArtical);
 	app.post('/newArtical', User.isSignin, Artical.newArtical);
 
+	app.post('/getArticalPage', Artical.page);
+	app.post('/getSearchData', Artical.searchData);
+
 	//添加评论
 	app.post('/comment', Comment.save);
 	app.post('/zan', Comment.zan);
 	app.post('/share', Comment.share);
+
+	app.post('/getComments', Comment.get);
 
 	app.post('/star', Artical.star);
 
@@ -86,4 +91,11 @@ module.exports = function(app){
 	app.post('/disableUser', User.isSignin, User.hasAuthorities, Admin.disableUser);
 	app.post('/adSave', User.isSignin, User.hasAuthorities, Admin.adSave);
 	app.post('/adminLogout', User.isSignin, User.hasAuthorities, User.logout);
+
+	app.post('/adminDeleteImg', User.isSignin, User.hasAuthorities, Admin.deleteImg);
+
+	app.get("*", function(req, res){
+		res.render("404", {"title": "No Found"});
+	});
+
 };

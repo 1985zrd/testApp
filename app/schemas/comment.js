@@ -34,12 +34,12 @@ CommentSchema.pre('save', function(next){
 
 
 CommentSchema.statics = {
-	fetch: function(obj,cb){
+	fetch: function(obj, page, cb){
 		return this
 		.find(obj)
 		.sort({'createTime':-1})
-		.skip(0)
-		.limit(100)
+		.skip((parseInt(page.now)-1)*parseInt(page.num))
+		.limit(parseInt(page.num))
 		.exec(cb)
 	},
 	findById: function(id, cb){

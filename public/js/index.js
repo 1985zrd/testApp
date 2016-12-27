@@ -1,34 +1,11 @@
 'use strict';
-//搜索页面搜索
+//首页
 (function(){
-	$(".bigSearch input").val(window.location.search.split("=")[1]);
-	$(".bigSearch .btn").click(function(){
-		if( $("bigSearch input").val() == ""){
-			return;
-		};
-		if( checkword( $(".bigSearch input").val() ) ){
-			window.location.href = "/search?_search="+encodeURI( $(".bigSearch input").val() )
-		}else{
-			var floatWindow = new PopUpBox();
-		    var content = "<p style='text-align:center'>请输入中文</p>";
-			floatWindow.init({
-				iNow:0,          // 确保一个对象只创建一次
-				tBar:false,  
-				time:1500,  
-				content:content,     // 内容
-				workBar:false
-			});
-		}
-		return false;
-	});
-	$(".bigSearch input").change(function(){
-		$(".bigSearch .btn").click();
-	});
 
 	var iPage = 1;
 	var flag = true;
 
-	function searchData(obj){
+	function articalData(obj){
 		if(obj.artical && obj.artical.length>0){
 			for(var i=0,len=obj.artical.length;i<len;i++){
 				var oA = $('<a href="artical?_id='+obj.artical[i]._id+'" class="item clear"></a>');
@@ -59,7 +36,7 @@
 			if ( flag ) {
 				flag = false;
 				iPage++;
-				fnAjax("/getSearchData", {"search": $(".bigSearch input").val(),"pageNow": iPage,"pageNum": 10}, searchData)
+				fnAjax("/getArticalPage", {"column": "美食","pageNow": iPage,"pageNum": 10}, articalData)
 			}
 		}
 	}); 

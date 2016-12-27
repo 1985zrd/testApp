@@ -1,8 +1,9 @@
 var Artical = require("../models/artical.js");
 var Comment = require('../models/comment.js');
+var Ad = require("../models/ad.js");
 
 exports.scenery = function(req, res){   //美景
-	Artical.fetch({"column":"美景","disable": 1},function(err, arr){
+	Artical.fetch({"column":"美景","disable": 1}, {"now": 1, "num": 10}, function(err, arr){
 		if(err){
 			//res.send(err);
 		}
@@ -16,7 +17,7 @@ exports.scenery = function(req, res){   //美景
 }
 
 exports.game = function(req, res){   //游戏
-	Artical.fetch({"column":"游戏","disable": 1},function(err, arr){
+	Artical.fetch({"column":"游戏","disable": 1}, {"now": 1, "num": 10}, function(err, arr){
 		if(err){
 			res.send(err);
 		}
@@ -37,28 +38,17 @@ exports.artical = function(req, res){   //文章
 			num+=parseInt(obj.star[i]);
 		}
 		starNum = Math.round(num/obj.star.length);
-		
-
-		Comment.find({artical: req.query._id})
-		.sort({'createTime':-1})
-		.exec(function(err, comments){
+		Artical.update({_id:req.query._id},{$inc: {viewNum: 1}}, function(err){
 			if(err){
-				res.send(err);
-			}else{
-				Artical.update({_id:req.query._id},{$inc: {viewNum: 1}}, function(err){
-					if(err){
-						console.log(err)
-					}
-				});
-				res.render('artical',{'title':'文章','obj': obj?obj:{},"arr":comments,"starNum":starNum
-				});
+				console.log(err)
 			}
-		})
+		});
+		res.render('artical',{'title':'文章','obj': obj?obj:{}, "starNum":starNum});
 	});
 }
 
 exports.search = function(req, res){    //搜索
-	Artical.fetch({"title": {$regex: req.query._search, $options:'i'},"disable": 1},function(err, arr){
+	Artical.fetch({"title": {$regex: req.query._search, $options:'i'},"disable": 1}, {"now": 1, "num": 10}, function(err, arr){
 		if(err){
 			res.send(err);
 		}else{
@@ -110,5 +100,50 @@ exports.star = function(req, res){  //图片上传
 			return;
 		}
 		res.send({"code": 1, "message": "评论成功"});
+	});
+}
+
+exports.page = function(req, res){  // 文章分页 数据获取
+	var column = req.body.column, pageNow = req.body.pageNow, pageNum = req.body.pageNum, disable = req.body.disable;
+	if(disable){
+		Artical.fetch({"column": column}, {"now": pageNow, "num": pageNum}, function(err, arr){
+			if(err){
+				//res.send(err);
+			}
+			Artical.count({"column": column}, function(err, count){
+				if(err){
+					//res.send(err);
+				}
+				res.send({"artical": arr, "pageNow": pageNow, "totalPage": Math.ceil(parseInt(count)/parseInt(pageNum))});
+			});
+		});
+	}else{
+		Artical.fetch({"column": column,"disable": 1}, {"now": pageNow, "num": pageNum}, function(err, arr){
+			if(err){
+				//res.send(err);
+			}
+			Artical.count({"column": column,"disable": 1}, function(err, count){
+				if(err){
+					//res.send(err);
+				}
+				res.send({"artical": arr, "pageNow": pageNow, "totalPage": Math.ceil(parseInt(count)/parseInt(pageNum))});
+			});
+		});
+	}
+}
+
+exports.searchData = function(req, res){  // 搜索文章分页 数据获取
+	var search = req.body.search, pageNow = req.body.pageNow, pageNum = req.body.pageNum;
+	Artical.fetch({"title": {$regex: search, $options:'i'},"disable": 1}, {"now": pageNow, "num": pageNum}, function(err, arr){
+		if(err){
+			res.send(err);
+		}else{
+			Artical.count({"title": {$regex: search, $options:'i'},"disable": 1}, function(err, count){
+				if(err){
+					//res.send(err);
+				}
+				res.send({"artical": arr, "pageNow": pageNow, "totalPage": Math.ceil(parseInt(count)/parseInt(pageNum))});
+			});
+		}
 	});
 }

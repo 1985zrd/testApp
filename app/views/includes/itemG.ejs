@@ -4,7 +4,7 @@
 	</div>
 	<div class="info">
 		<p class="title"><%=obj.title %></p>
-		<p class="star"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></p>
+		<p class="author"><span><%-String(obj.author).replace(/(\d{3})\d{4}(\d{4})/,"$1****$2") %></span><span>发表于<%=obj.createTime.toLocaleDateString() %></span><span>更新于<%=obj.updateTime.toLocaleDateString() %></span></p>
 		<div class="statistics clear">
 			<p class="left"><%= obj.viewNum %>览</p>
 			<p class="left"><%= obj.commentsNum %>评</p>

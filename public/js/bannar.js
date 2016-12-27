@@ -18,6 +18,7 @@
 		hoverFn()
 	});
 	function hoverFn(){
+		clearInterval(iTimer);
 		iTimer = setInterval(function(){
 			move();
 		},5000);

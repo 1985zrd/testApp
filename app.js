@@ -10,8 +10,15 @@ var logger = require('morgan');
 var port = process.env.PORT || 80;
 var app = express();
 
-var dbUrl = 'mongodb://10.26.76.126/test';
-mongoose.connect(dbUrl);
+var dbUrl = 'mongodb://localhost/test';
+mongoose.connect(dbUrl, function(err){
+  if(err){
+    console.log("服务器连接失败");
+  }else{
+    console.log("服务器连接成功");
+    app.listen(port);
+  }
+});
 
 var ueditor = require('ueditor-nodejs');
 app.use('/ueditor/ue', ueditor({//这里的/ueditor/ue是因为文件件重命名为了ueditor,如果没改名，那么应该是/ueditor版本号/ue
@@ -48,8 +55,6 @@ if ('development' === env) {
 }  
 
 require('./router/routes.js')(app);
-
-app.listen(port);
 
 
 

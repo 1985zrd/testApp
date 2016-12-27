@@ -1,6 +1,69 @@
 'use strict';
 //首页
 (function(){
+	getArticals({
+		"elm": "articalListS",
+		"column": "美食",
+		"pageNow": 1,
+		"paging": "pagingS"
+	});
+	getArticals({
+		"elm": "articalListJ",
+		"column": "美景",
+		"pageNow": 1,
+		"paging": "pagingJ"
+	});
+	getArticals({
+		"elm": "articalListYX",
+		"column": "游戏",
+		"pageNow": 1,
+		"paging": "pagingYX"
+	});
+
+	function getArticals(opt){
+		fnAjax("/getArticalPage", {"column": opt.column,"pageNow": opt.pageNow,"pageNum": 10,"disable":"all"}, articalData);
+		function articalData(obj){
+			$("."+opt.elm+" tbody").html("");
+			$("#"+opt.paging+"").html("");
+			if(obj.artical && obj.artical.length>0){
+				for(var i=0,len=obj.artical.length;i<len;i++){
+					var oTr = $("<tr code='"+obj.artical[i]._id+"'></tr>");
+					oTr.html("<td>"+((parseInt(obj.pageNow)-1)*10+i)+"</td>\
+		                <td>"+obj.artical[i].author+"</td>\
+		                <td>"+obj.artical[i].title+"</td>\
+		                <td>"+new Date(parseInt(obj.artical[i].createTime,10)).toLocaleDateString()+"</td>\
+	                <td><a href='javascript:'>编辑</a><a href='javascript:'>"+(obj.artical[i].disable==1?"禁用":"启用")+"</a></td>");
+					oTr.appendTo( $("."+opt.elm+" tbody") );
+				}
+				if(obj.totalPage>1){
+					page({
+	                    id: opt.paging,
+	                    nowNum: obj.pageNow,
+	                    allNum: obj.totalPage,
+	                    callBack: function(now,all){
+	                    	getArticals({
+								"elm": opt.elm,
+								"column": opt.column,
+								"pageNow": now,
+								"paging": opt.paging
+							});
+	                    }
+	                });
+				}
+			}
+		};
+	};
+	function fnAjax(url, obj, cb){    //ajax获取数据
+		$.ajax({    
+			url:url,
+			type:'post', 
+			data:obj,
+			success:function(str){
+				cb && cb(str);
+			}
+		});
+	};
+
 	$(".articalH3").click(function(){
 		$(this).siblings().toggle();
 		$(".controlBar h3").removeClass("active");
@@ -43,14 +106,13 @@
 		}
 	});
 
-    $(".articalEdit a").click(function(){
-    	if($(this).html() == "禁用" || $(this).html() == "启用"){
-    		var This = this;
+    $(".articalEdit table").click(function(e){
+    	if( $(e.target).html() == "禁用" || $(e.target).html() == "启用" ){
     		$.ajax({
 				type: "POST",
 				url: "/disableArtical",
 				data: {
-					"id": $(this).parent().parent().attr("code")
+					"id": $(e.target).parent().parent().attr("code")
 				},
 				success: function(str){
 					var floatWindow = new PopUpBox();
@@ -63,10 +125,10 @@
 						workBar:false
 					});
 					if(str.code == 1){
-						if($(This).html() == "禁用"){
-							$(This).html("启用")
+						if($(e.target).html() == "禁用"){
+							$(e.target).html("启用")
 						}else{
-							$(This).html("禁用")
+							$(e.target).html("禁用")
 						}
 					}
 				}
@@ -175,5 +237,30 @@
 				}
 			}
 		});
+	});
+
+	//图片删除
+	$("table").click(function(e){
+		if($(e.target).hasClass("deleteImg")){
+			$.ajax({
+			type: "POST",
+			url: "/adminDeleteImg",
+			data: {"id": $(e.target).parent().parent().attr("code")},
+			success: function(str){
+				var floatWindow = new PopUpBox();
+				var content = str.message;
+				floatWindow.init({
+					iNow:0,          // 确保一个对象只创建一次
+					tBar:false,  
+					time:1500,  
+					content:content,     // 内容
+					workBar:false
+				});
+				if(str.code == 0){
+					$(e.target).parent().parent().remove();
+				}
+			}
+		});
+		}
 	});
 })();

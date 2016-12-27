@@ -80,20 +80,18 @@ exports.logout = function(req, res){     //退出
 }
 
 exports.account = function(req, res){     //我的账户
-	Artical.fetch({"author":req.session.user.username},function(err, articals){
+	Artical.fetch({"author":req.session.user.username}, {"now": 1, "num": 999}, function(err, articals){
 		if(err){
 			console.log(err)
 		}else{
-			Comment.find({from: req.session.user.username})
-			.sort({'createTime':-1})
-			.exec(function(err, comments){
+			Comment.fetch({from: req.session.user.username}, {"now": 1, "num": 999}, function(err, comments){
 				if(err){
 					console.log(err)
 				}else{
 					res.render('account',{'title':'我的账户','articals': articals?articals:[],"comments":comments?comments:[]
 					});
 				}
-			})
+			});
 		}
 	});
 }
